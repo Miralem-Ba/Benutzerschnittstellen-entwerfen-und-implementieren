@@ -1,0 +1,317 @@
+/* Verwendung der Poppins-Schriftart von Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+/* Allgemeine Zurücksetzung von Margin, Padding und Box-Modell */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Hintergrundbild und Stil für den gesamten Body */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url(../images/wolken.webp) no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Stil für den Header */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    background: red;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+}
+
+/* Stil für das Logo im Header */
+header img {
+    width: 85px;
+}
+
+/* Stil für die Navigationslinks im Header */
+.navigation a {
+    position: relative;
+    font-size: 1.1em;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+}
+
+/* Stil für den Hover-Effekt auf Navigationslinks */
+.navigation a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    border-radius: 5px;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .5s;
+}
+
+/* Hover-Effekt auf Navigationslinks */
+.navigation a:hover::after {
+    transform-origin: left;
+    transform: scaleX(1);
+}
+
+/* Stil für den Login-Button im Header */
+.navigation .btnLogin-popup {
+    width: 130px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid #fff;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: #fff;
+    font-weight: 500;
+    margin-left: 40px;
+    transition: .5s;
+}
+
+/* Hover-Effekt auf den Login-Button */
+.navigation .btnLogin-popup:hover {
+    background: #Fff;
+    color: #162938;
+}
+
+/* Stil für den Hauptcontainer */
+.wrapper {
+    position: relative;
+    width: 400px;
+    height: 440px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .5);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px rgba(0,0,0, .5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transform: scale(0);
+    transition: transform .5s ease, height .2s ease;
+}
+
+/* Aktivierung des Hauptcontainers */
+.wrapper.active-popup {
+    transform: scale(1);
+}
+
+.wrapper.active {
+    height: 520px;
+}
+
+/* Stil für das Formular im Container */
+.wrapper .from-box {
+    width: 100%;
+    padding: 40px;
+}
+
+/* Stil für das Login-Formular im Container */
+.wrapper .from-box.login {
+   transition: transform .18s ease;
+   transform: translateX(0);
+}
+
+.wrapper.active .from-box.login {
+    transition: none;
+    transform: translateX(-400px);
+}
+
+/* Stil für das Registrierungs-Formular im Container */
+.wrapper .from-box.register {
+    position: absolute;
+    transition: none;
+    transform: translateX(400px);
+}
+
+.wrapper.active .from-box.register {
+    transition: transform .18s ease;
+    transform: translateX(0);
+}
+
+/* Stil für das Schließen-Symbol */
+.wrapper .icone-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 45px;
+    height: 45px;
+    background: #162938;
+    font-size: 2em;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom-left-radius: 20px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+/* Stil für Überschriften im Formular */
+.from-box h2 {
+    font-size: 2em;
+    color: #162938;
+    text-align: center;
+}
+
+/* Stil für Eingabefelder */
+.input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid #162938;
+    margin: 30px 0;
+}
+
+/* Stil für Eingabefeldbeschriftungen */
+.input-box label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color: #162938;
+    font-weight: 500;
+    pointer-events: none;
+    transition: .5s;
+}
+
+/* Stil für Eingabefelder, wenn sie den Fokus haben oder bereits ausgefüllt sind */
+.input-box input:focus~label,
+.input-box input:valid~label {
+    top: -5px;
+}
+
+/* Stil für Eingabefelder */
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color: #162938;
+    font-weight: 600;
+    padding: 0 35px 0 5px;
+}
+
+/* Stil für Icons in Eingabefeldern */
+.input-box .icon {
+    position: absolute;
+    right: 8px;
+    font-size: 1.2em;
+    color: #162938;
+    line-height: 57px;
+}
+
+/* Stil für den Bereich zum Speichern und Vergessen von Passwörtern */
+.remember-forget {
+    font-size: .9em;
+    color: #162938;
+    font-weight: 500;
+    margin: -15px 0 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Stil für Checkboxen im Bereich zum Speichern und Vergessen von Passwörtern */
+.remember-forget label input {
+    accent-color: #162938;
+    margin-right: 3px;
+}
+
+/* Stil für Links im Bereich zum Speichern und Vergessen von Passwörtern */
+.remember-forget a {
+    color: #162938;
+    text-decoration: none;
+}
+
+/* Hover-Effekt auf Links im Bereich zum Speichern und Vergessen von Passwörtern */
+.remember-forget a:hover {
+    text-decoration: underline;
+}
+
+/* Stil für allgemeine Buttons */
+.btn {
+    width: 100%;
+    height: 45px;
+    background: #162938;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    color: #fff;
+    font-weight: 500;
+}
+
+/* Stil für Text im Bereich Anmelden/Registrieren */
+.login-register {
+    font-size: .9em;
+    color: #162938;
+    text-align: center;
+    font-weight: 500;
+    margin: 25px 0 10px;
+}
+
+/* Stil für Links im Bereich Anmelden/Registrieren */
+.login-register p a {
+    color: #162938;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* Hover-Effekt auf Links im Bereich Anmelden/Registrieren */
+.login-register p a:hover {
+    text-decoration: underline;
+}
+
+/* Stil für das Durchschnittsergebnis */
+#durchschnitt {
+    color: green;
+}
+
+/* Stil für die Eingabefelder im Notenrechner */
+#wrapper div {
+    margin: 5px;
+}
+
+/* Stil für die Eingabefelder im Notenrechner */
+.input {
+    border-color: grey;
+    border-style: solid;
+    border-width: 1px;
+    padding: 5px;
+}
+
+/* Stil für die Wichtungsfaktoren im Notenrechner */
+.wertung {
+    margin-right: 3px;
+}
+
+/* Stil für das Ergebnis im Notenrechner */
+#result {
+    margin: 5px;
+    border: 1px solid grey;
+    display: inline-block;
+    padding: 5px;
+}

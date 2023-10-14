@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CsBe | Startseite</title>
+    <!-- Verbindung zur Google Fonts API -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Einbindung der Schriftart "Quicksand" von Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Einbindung des externen Stylesheets -->
+    <link rel="stylesheet" href="stylesheets/style.css">
+</head>
+<body>
+    <header>
+        <!-- Header-Bereich mit Logo und Navigation -->
+        <img src="images/CsBe.png" alt="CsBe Logo">
+        <nav class="navigation">
+            <!-- Navigationslinks -->
+            <a href="Noten.html">Startseite</a>
+            <a href="Notenrechner.html">Notenrechner</a>
+            <a href="Absenzen.html" id="absenzenLink">Absenzen</a>
+            <button class="btnLogin-popup">Login</button>
+        </nav> 
+    </header>
+
+    <!-- Dropdown-Menü zur Auswahl eines Moduls -->
+    <select id="dropdown">
+        <option value="default">Bitte Modul auswählen</option>
+        <option value="Modul">Deutsch</option>
+        <option value="Modul">Französisch</option>
+        <option value="Modul">Englisch</option>
+        <option value="Modul">ABU</option>
+        <option value="Modul">Mathe</option>
+        <option value="Modul">Physik</option>
+        <option value="Modul">BWL</option>
+        <option value="Modul">Sport</option>
+        <option value="Absenzen">Absenzen</option>
+    </select>
+    <!-- Button zum Hinzufügen eines Moduls -->
+    <button id="add-module" style="display: none;">+</button>
+
+    <script>
+        // HTML-Elemente abrufen
+        var dropdown = document.getElementById('dropdown');
+        var addModuleButton = document.getElementById('add-module');
+        var absenzenLink = document.getElementById('absenzenLink');
+
+        // Event-Listener, der auf Änderungen im Dropdown-Menü reagiert
+        dropdown.addEventListener('change', function () {
+            var selectedOption = dropdown.value;
+
+            // Überprüfe, ob "Modul" ausgewählt wurde
+            if (selectedOption === 'Modul') {
+                // Öffne ein neues Fenster mit der Modulverwaltung
+                window.open('ModulVerwaltung.html', '_blank');
+            } else {
+                // Verstecke den Button, wenn eine andere Option ausgewählt ist
+                addModuleButton.style.display = 'none';
+            }
+        });
+
+        // Event-Listener für das Hinzufügen eines Moduls
+        addModuleButton.addEventListener('click', function () {
+            // Hier kannst du die Logik für das Hinzufügen eines Moduls implementieren
+            // Zum Beispiel: Modulname abfragen und in die Modulverwaltung einfügen
+        });
+    </script>
+</body>
+</html>

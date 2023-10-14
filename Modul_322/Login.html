@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CsBe | Login</title>
+    <!-- Verbindung zur Google Fonts API -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Einbindung der Schriftart "Quicksand" von Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Einbindung des externen Stylesheets -->
+    <link rel="stylesheet" href="stylesheets/style.css">
+</head>
+
+<body>
+    <header>
+        <!-- Header-Bereich mit Logo und Navigation -->
+        <img src="images/CsBe.png" alt="CsBe Logo">
+        <nav class="navigation">
+            <button class="btnLogin-popup">Login</button>
+        </nav>
+    </header>
+
+    <div class="wrapper">
+        <!-- Popup-Fenster für Login und Registrierung -->
+        <span class="icone-close">
+            <ion-icon name="close"></ion-icon>
+        </span>
+        <div class="from-box login">
+            <!-- Login-Formular -->
+            <h2> Login</h2>
+            <form action="#">
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="mail"></ion-icon></span>
+                    <input type="email" required>
+                    <label>Email</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                    <input type="password" required>
+                    <label>Password</label>
+                </div>
+                <div class="remember-forget">
+                    <label><input type="checkbox">
+                    Remember me </label>
+                    <a href="#"> Forget Password ?</a>
+                </div>
+                <button type="button" class="btn" onclick="login()">Login</button>
+                <div class="login-register">
+                    <p>Don't have an account ?
+                    <a href="#"
+                    class="register-link">Register</a></p>
+                    <button onclick="changeToDE()">DE</button>
+                    <button onclick="changeToFR()">FR</button>
+                    <button onclick="changeToEN()">EN</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="from-box register">
+            <!-- Registrierungs-Formular -->
+            <h2>Registeration</h2>
+            <form action="#">
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="person-circle"></ion-icon>
+                    </span>
+                    <input type="Text" required>
+                    <label>Username</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="mail"></ion-icon>
+                    </span>
+                    <input type="email" required>
+                    <label>Email</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="lock-closed"></ion-icon>
+                    </span>
+                    <input type="password" required>
+                    <label>Password</label>
+                </div>
+                <div class="remember-forget">
+                    <label>
+                        <input type="checkbox">
+                        I agree to the terms & conditions 
+                    </label>
+                </div>
+                <button type="button" class="btn" onclick="register()">Register</button>
+                <div class="login-register">
+                    <p>Already have an account ?
+                    <a href="#"
+                    class="login-link">Login</a>
+                    </p>
+                    <button onclick="changeToDE()">DE</button>
+                    <button onclick="changeToFR()">FR</button>
+                    <button onclick="changeToEN()">EN</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    
+</body>
+</html>

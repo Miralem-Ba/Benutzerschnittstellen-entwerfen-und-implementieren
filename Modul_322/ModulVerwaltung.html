@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CsBe | ModulVerwaltung</title>
+    <!-- Verbindung zur Google Fonts API -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Einbindung der Schriftart "Quicksand" von Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Einbindung des externen Stylesheets -->
+    <link rel="stylesheet" href="stylesheets/style.css">
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Header-Bereich mit Logo und Navigation -->
+        <img src="images/CsBe.png" alt="CsBe Logo">
+        <nav class="navigation">
+            <!-- Navigationslinks -->
+            <a href="Noten.html">Startseite</a>
+            <a href="Notenrechner.html">Notenrechner</a>
+            <a href="Absenzen.html" id="absenzenLink">Absenzen</a>
+            <button class="btnLogin-popup">Login</button>
+        </nav>
+    </header>
+    <h2 class="page_title">Modulverwaltung</h2>
+    <!-- Hier können Sie die Liste der Module anzeigen -->
+    <div id="moduleList">
+        <!-- Die Liste der Module wird hier angezeigt -->
+    </div>
+    
+    <script src="script.js"></script> <!-- Hier verlinken Sie Ihre script.js-Datei -->
+    
+    <!-- Button zum Hinzufügen eines Moduls -->
+    <button id="addModuleBtn">Modul hinzufügen</button>
+    
+    <script>
+        // JavaScript-Code hier einfügen, um die Modulverwaltung zu implementieren
+        
+        // Rufen Sie das HTML-Element für die Modulliste ab
+        const moduleList = document.getElementById('moduleList');
+        
+        // Lade gespeicherte Module beim Laden der Seite
+        const savedModules = JSON.parse(localStorage.getItem('modules')) || [];
+        
+        // Iterieren Sie durch die gespeicherten Module und fügen Sie sie zur Modulliste hinzu
+        savedModules.forEach((module) => {
+            // Fügen Sie die Module hier zur Modulliste hinzu, um sie anzuzeigen
+        });
+    </script>
+</body>
+</html>

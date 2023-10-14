@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CsBe | Absenzen</title>
+    <!-- Verbindung zur Google Fonts API -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Einbindung der Schriftart "Quicksand" von Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Einbindung des externen Stylesheets -->
+    <link rel="stylesheet" href="stylesheets/style.css">
+</head>
+
+<body>
+    <header>
+        <!-- Header-Bereich mit Logo und Navigation -->
+        <img src="images/CsBe.png" alt="CsBe Logo">
+        <nav class="navigation">
+            <!-- Navigationslinks -->
+            <a href="Noten.html">Startseite</a>
+            <a href="Notenrechner.html">Notenrechner</a>
+            <a href="Absenzen.html" id="absenzenLink">Absenzen</a>
+            <button class="btnLogin-popup">Login</button>
+        </nav> 
+    </header>
+</body>
+    <!-- Hauptinhalt der Absenzen-Seite -->
+    <h2 class="page_title">Absenzen</h2>
+    
+    <div id="wrapper">
+        <!-- Eingabefelder für Absenzen -->
+        <div><input type="text" class="note" />Lektion</div>
+        <div><input type="text" class="note" />Lektion</div>
+        <div><input type="text" class="note" />Lektion</div>
+        <div><input type="text" class="note" />Lektion</div>
+        <div><input type="text" class="note" />Lektion</div>
+        <div><input type="text" class="note" />Lektion</div>
+        <div><input type="text" class="note" />Lektion</div>
+        <div><input type="text" class="note" />Lektion</div>
+        <div><input type="text" class="note" />Lektion</div>
+        <div><input type="text" class="note" />Lektion</div>
+        <!-- Anzeige des Durchschnitts der Absenzen -->
+        <span id="result">
+            Durchschnitt: <span id="durchschnitt"></span>
+        </span>
+    </div>
+</div>
+<script>
+    // JavaScript-Code hier einfügen, um den Durchschnitt der Absenzen zu berechnen
+    
+    var calc = function () {
+        var summe = 0;
+
+        var divs = document.getElementById('wrapper').getElementsByTagName('div');
+
+        for (var i = 0, len = divs.length; i < len; i++) {
+            var div = divs[i];
+
+            var note = +div.getElementsByClassName('note')[0].value;
+
+            if (note < 0 || note > 6) {
+                div.getElementsByClassName('note')[0].style.borderColor = "red";
+            } else {
+                div.getElementsByClassName('note')[0].style.borderColor = "grey";
+            }
+
+            if (note != '') {
+                summe += note;
+            }
+        }
+
+        // Berechne und zeige den Durchschnitt der Absenzen an
+        document.getElementById('durchschnitt').innerHTML = (summe).toFixed(2);
+    }
+
+    var inputs = document.getElementById('wrapper').getElementsByTagName('input');
+    for (var i = 0, len = inputs.length; i < len; i++) {
+        // Füge Event-Listener hinzu, um den Durchschnitt neu zu berechnen
+        inputs[i].addEventListener('keyup', calc);
+        inputs[i].addEventListener('change', calc);
+    }
+</script>
+</body>
+</html>
